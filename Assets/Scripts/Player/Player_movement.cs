@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player_movement : MonoBehaviour
 {
+
+    [SerializeField]
+    protected InputTextManager inputManager;
+
     [Header("Movement")]
     public float greitis;
 
@@ -37,7 +41,9 @@ public class Player_movement : MonoBehaviour
 
     private void Update()
     {
-
+        if(inputManager.getWrite())
+            return;
+        
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         MyInput();
