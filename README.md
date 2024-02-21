@@ -2,8 +2,10 @@
 
 ## Aprašymas
 
-<img src="./Assets/Icons/ktu.jpg" alt="KTU" height="150" />
-<img src="./Assets/Icons/pvp.jpg" alt="PVP" height="150" />
+<table><tr>
+    <td><img src="./Assets/Icons/ktu.jpg" alt="KTU" height="150" /></td>
+    <td><img src="./Assets/Icons/pvp.jpg" alt="PVP" height="150" /></td>
+</tr></table>
 
 - **PR00B251 Produkto vystymo projektas** | ***Įveik kalbėjimo baimę***\
 Tai VR-3D projektas, kuriame siekiama skatinti jauno amžiaus individus šnekėtis su žaidime esančiais personažais. Šių personažų elgseną realizuoja sudėtingi dirbtinio intelekto kalbos modeliai bei garso modeliai.
