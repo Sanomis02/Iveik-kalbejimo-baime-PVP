@@ -47,3 +47,4 @@ git clone https://github.com/Sanomis02/Iveik-kalbejimo-baime-PVP
 ## Šaltiniai
 
 - [Žaidėjo judėjimui naudotas pavyzdys](https://www.youtube.com/watch?v=f473C43s8nE)
+- https://www.overleaf.com/project/65ccee4acee3686482ad5173
