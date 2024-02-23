@@ -1,17 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using TMPro;
 
 namespace OpenAI
 {
     public class ChatGPTController : MonoBehaviour
     {
         [SerializeField] private InputField inputField;
-        [SerializeField] private Button button;
-        [SerializeField] private ScrollRect scroll;
-        
-        [SerializeField] private RectTransform sent;
-        [SerializeField] private RectTransform received;
+        [SerializeField] private TMP_Text outputField;
 
         private float height;
         private OpenAIApi openai = new OpenAIApi("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");
@@ -21,37 +18,38 @@ namespace OpenAI
 
         private void Start()
         {
-            button.onClick.AddListener(SendReply);
+            if(Input.GetKeyDown(KeyCode.Return))
+                SendReply();
+        }
+
+        void OnGUI()
+        {
+            if(Event.current.Equals(Event.KeyboardEvent("return")))
+                SendReply();
         }
 
         private void AppendMessage(ChatMessage message)
         {
-            scroll.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 0);
-
-            var item = Instantiate(message.Role == "user" ? sent : received, scroll.content);
-            item.GetChild(0).GetChild(0).GetComponent<Text>().text = message.Content;
-            item.anchoredPosition = new Vector2(0, -height);
-            LayoutRebuilder.ForceRebuildLayoutImmediate(item);
-            height += item.sizeDelta.y;
-            scroll.content.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
-            scroll.verticalNormalizedPosition = 0;
+            outputField.text = message.Content;
+            
         }
 
         private async void SendReply()
         {
+            Debug.Log("patekta");
+
             var newMessage = new ChatMessage()
             {
                 Role = "user",
                 Content = inputField.text
             };
             
-            AppendMessage(newMessage);
+            //AppendMessage(newMessage);
 
             if (messages.Count == 0) newMessage.Content = prompt + "\n" + inputField.text; 
             
             messages.Add(newMessage);
             
-            button.enabled = false;
             inputField.text = "";
             inputField.enabled = false;
             
@@ -75,7 +73,6 @@ namespace OpenAI
                 Debug.LogWarning("No text was generated from this prompt.");
             }
 
-            button.enabled = true;
             inputField.enabled = true;
         }
     }
