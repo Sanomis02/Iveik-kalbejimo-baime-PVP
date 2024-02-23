@@ -44,6 +44,46 @@ Tai VR-3D projektas, kuriame siekiama skatinti jauno amžiaus individus šnekėt
 git clone https://github.com/Sanomis02/Iveik-kalbejimo-baime-PVP
 ```
 
+## Projekto katalogo struktūra
+```bash
+C:.
+├───.vscode
+├───Assets                              - Pagrindinis katalogas kuriame talpinami versijuojami dokumentai
+│   ├───Icons                           - Icons talpinami paveiklsiukai
+│   ├───ProBuilder Data                 - Įskiepio katalogas
+│   ├───Samples                         - Pavyzdžiai, paimti iš kitų repozitorijų, Unity paketų
+│   │   └───OpenAI Unity
+│   │       └───0.2.0
+│   │           ├───ChatGPT
+│   │           ├───Stream Response
+│   │           └───Whisper
+│   ├───Scenes                          - Užkraunamos Unity scenos
+│   ├───Scripts                         - C# parašyti scripts, backend logika
+│   │   ├───API                         - Scripts susiję su API naudojimu
+│   │   ├───Camera                      - Scripts susiję su kameros valdymu
+│   │   ├───NPC                         - Scripts susiję su NPC logikos įdiegimu ir valdymu/elgsena
+│   │   └───Player                      - Scripts susiję su naudotojo logika, valdymu
+│   ├───Sounds                          - Talpinami garsų failai
+│   ├───TextMesh Pro    
+│   │   ├───Documentation
+│   │   ├───Fonts
+│   │   ├───Resources
+│   │   │   ├───Fonts & Materials
+│   │   │   ├───Sprite Assets
+│   │   │   └───Style Sheets
+│   │   ├───Shaders
+│   │   └───Sprites
+│   └───Visuals                          - Vizualizacijos, stambus vienetas, apima modelius, skyboxes, tekstūras
+│       ├───Background                   - Fonas, background
+│       ├───Foreground                   - Priekinis planas
+│       ├───Models                       - Blender modeliai, objektų modeliai
+│       ├───Skyboxes                     - Skyboxes tekstūros
+│       └───Textures                     - Tekstūros taikomos UV pagrindu objektams
+
+
+
+```
+
 ## Šaltiniai
 
 - [Žaidėjo judėjimui naudotas pavyzdys](https://www.youtube.com/watch?v=f473C43s8nE)
