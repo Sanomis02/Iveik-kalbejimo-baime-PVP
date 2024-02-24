@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
+
 namespace OpenAI
 {
     public class ChatGPT : MonoBehaviour
@@ -17,7 +18,7 @@ namespace OpenAI
         private OpenAIApi openai = new OpenAIApi("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");
 
         private List<ChatMessage> messages = new List<ChatMessage>();
-        private string prompt = "Act as a random stranger in a chat room and reply to the questions. Don't break character. Don't ever mention that you are an AI model.";
+        private string prompt = "Act as a random stranger in a chat room and reply to the questions. Give short answers. Don't break character. Don't ever mention that you are an AI model.";
 
         private void Start()
         {
