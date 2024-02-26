@@ -63,6 +63,7 @@ C:.
 │   │   ├───Camera                      - Scripts susiję su kameros valdymu
 │   │   ├───NPC                         - Scripts susiję su NPC logikos įdiegimu ir valdymu/elgsena
 │   │   └───Player                      - Scripts susiję su naudotojo logika, valdymu
+│   │   └───Environment                 - Scripts susiję su aplinka, pvz plane triggers logika
 │   ├───Sounds                          - Talpinami garsų failai
 │   ├───TextMesh Pro    
 │   │   ├───Documentation
