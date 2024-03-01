@@ -3,8 +3,8 @@
 ## Aprašymas
 
 <table><tr>
-    <td><img src="./Assets/Icons/ktu.jpg" alt="KTU" height="150" /></td>
-    <td><img src="./Assets/Icons/pvp.jpg" alt="PVP" height="150" /></td>
+    <td><img src="./Iveik-kalbejimo-baime-3D/Assets/Icons/ktu.jpg" alt="KTU" height="150" /></td>
+    <td><img src="./Iveik-kalbejimo-baime-3D/Assets/Icons/pvp.jpg" alt="PVP" height="150" /></td>
 </tr></table>
 
 - **PR00B251 Produkto vystymo projektas** | ***Įveik kalbėjimo baimę***\
@@ -15,6 +15,7 @@ Tai VR-3D projektas, kuriame siekiama skatinti jauno amžiaus individus šnekėt
 - [Komandos sudėtis](#komandos-sudėtis)
 - [Naudojama programinė įranga ir įrankiai](#naudojama-programinė-įranga-ir-įrankiai)
 - [Projekto diegimas](#projekto-diegimas)
+- [Projekto katalogo struktūra](#projekto-katalogo-struktūra)
 - [Šaltiniai](#šaltiniai)
 
 
