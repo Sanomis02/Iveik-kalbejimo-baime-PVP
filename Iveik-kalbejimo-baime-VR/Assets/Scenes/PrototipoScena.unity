@@ -2359,6 +2359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389b1b93e9db889468fb9052e43f3deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensitivityX: 0
+  sensitivityY: 0
+  orientation: {fileID: 0}
 --- !u!81 &559137532
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6128,7 +6131,7 @@ MonoBehaviour:
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   orientacija: {fileID: 32241108}
 --- !u!43 &1448033814
 Mesh:
