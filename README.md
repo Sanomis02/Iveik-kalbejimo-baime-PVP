@@ -27,7 +27,6 @@ Tai VR-3D projektas, kuriame siekiama skatinti jauno amžiaus individus šnekėt
 - [Simonas Skučas IFB-1](https://github.com/Sanomis02)
 - [Domas Rinkevičius IFC-1](https://github.com/domrin)
 - [Ignas Vytėnas IFZm-1](https://github.com/Ignqs)
-- Andrėja Minkevičiūtė IFF-1/9
 
 **Mentorius: [prof. dr. Tomas Blažauskas](https://ktu.edu/scientist/tomas.blazauskas/)**
 
@@ -89,4 +88,4 @@ C:.
 ## Šaltiniai
 
 - [Žaidėjo judėjimui naudotas pavyzdys](https://www.youtube.com/watch?v=f473C43s8nE)
-- https://www.overleaf.com/project/65ccee4acee3686482ad5173
+- [Projekto ataskaita](https://www.overleaf.com/project/65ccee4acee3686482ad5173)

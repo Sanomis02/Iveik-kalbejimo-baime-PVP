@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using System.Net.Http.Headers;
 using TMPro;
 using UnityEngine.UI;
+using System.IO; // Added for file operations
+using UnityEngine.Networking;
+using System;
 
 // klase TTS duomenims 
 [System.Serializable]
@@ -19,18 +22,15 @@ public class TTSPayload
 
 public class OpenAIWrapper : MonoBehaviour
 {
-     // naudojamas audio playeris
+    // naudojamas audio playeris
     [SerializeField] private AudioPlayer audioPlayer;
 
-  // bandomasis tekstas
-   // private string inputTxt = "Labas, aš vardu Dominykas. Kuo tu vardu?";
-    
     // Open Ai API raktas
-    private string openAIKey = "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";
+    private string openAIKey = "";
 
     // kalbos modelis 
     private string model = "tts-1";  // tts-1-hd , geresne kokybe, ilgesnis atsako laikas
-    
+
     // kalbos balsas
     private string voice = "alloy";  // alloy, echo, fable, onyx, nova, shimmer
 
@@ -40,16 +40,53 @@ public class OpenAIWrapper : MonoBehaviour
     // sukurimao audio formatas
     private readonly string outputFormat = "mp3";
 
+    private async Task<string> ReadApiKeyFromJson()
+    {
+        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".openai", "auth.json");
+
+        if (!File.Exists(path))
+        {
+            Debug.LogError("OpenAI auth.json file not found.");
+            return null;
+        }
+
+        string jsonContent = File.ReadAllText(path);
+        var data = JsonUtility.FromJson<OpenAIAuthData>(jsonContent);
+        return data.api_key;
+    }
+
+    [System.Serializable]
+    private class OpenAIAuthData
+    {
+        public string api_key;
+    }
+
+    private async Task<string> GetOpenAIKey()
+    {
+        if (string.IsNullOrEmpty(openAIKey))
+        {
+            openAIKey = await ReadApiKeyFromJson();
+        }
+        return openAIKey;
+    }
+
     public async Task<byte[]> RequestTextToSpeech(string text)
     {
         Debug.Log("Sending new request to OpenAI TTS.");
+        string apiKey = await GetOpenAIKey();
+        if (string.IsNullOrEmpty(apiKey))
+        {
+            Debug.LogError("OpenAI API key is missing or invalid.");
+            return null;
+        }
+
         using var httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", openAIKey);
+        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
         TTSPayload payload = new TTSPayload
         {
             model = this.model,
-            input = text, //.text,
+            input = text,
             voice = this.voice,
             response_format = this.outputFormat,
             speed = this.speed
@@ -58,7 +95,7 @@ public class OpenAIWrapper : MonoBehaviour
         string jsonPayload = JsonUtility.ToJson(payload);
 
         var httpResponse = await httpClient.PostAsync(
-            "https://api.openai.com/v1/audio/speech", 
+            "https://api.openai.com/v1/audio/speech",
             new StringContent(jsonPayload, Encoding.UTF8, "application/json"));
 
         byte[] response = await httpResponse.Content.ReadAsByteArrayAsync();
@@ -70,7 +107,7 @@ public class OpenAIWrapper : MonoBehaviour
         Debug.Log("Error: " + httpResponse.StatusCode);
         return null;
     }
-    
+
     public async Task<byte[]> RequestTextToSpeech(string text, string model, string voice, float speed)
     {
         this.model = model;
@@ -102,9 +139,6 @@ public class OpenAIWrapper : MonoBehaviour
         SynthesizeAndPlay(text);
     }
 
-
-
-
     //  private void Update()
     // {
     //     // Check if the "T" key is pressed
@@ -115,17 +149,3 @@ public class OpenAIWrapper : MonoBehaviour
     //     }
     // }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

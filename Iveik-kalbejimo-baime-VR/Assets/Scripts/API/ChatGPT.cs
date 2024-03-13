@@ -13,7 +13,7 @@ public class ChatGPT : MonoBehaviour
     [SerializeField] private TMP_Text outputField;
     
     // Open AI API raktas
-    private OpenAIApi openai = new OpenAIApi("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");
+    private OpenAIApi openai = new OpenAIApi();
 
     // Zinuciu listas
     private List<ChatMessage> messages = new List<ChatMessage>();
