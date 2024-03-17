@@ -34,7 +34,7 @@ Tai VR-3D projektas, kuriame siekiama skatinti jauno amžiaus individus šnekėt
 
 - [Unity 2022.3.20f1 LTS](https://unity.com/)
 - [ProBuilder Unity įskiepis](https://unity.com/features/probuilder)
-- VR akiniai (pavadinimas)
+- Meta Quest 3/2 VR akiniai
 - [OpenAI ChatGPT API](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)
 - [OpenAI ChatGPT Unity paketas](https://github.com/srcnalt/OpenAI-Unity)
 
