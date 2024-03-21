@@ -1,8 +1,9 @@
-using OpenAI;
+ using OpenAI;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.InputSystem;
 
 namespace Samples.Whisper
 {
@@ -12,10 +13,10 @@ namespace Samples.Whisper
         [SerializeField] private ChatGPT chatGPT;
  
         //gaunama zinute 
-        [SerializeField] private TextMeshProUGUI message;
+    //    [SerializeField] private TextMeshProUGUI message;
  
         //ekrane parasomas transkribuotas tekstas
-        [SerializeField] private TMP_Text outputField;
+      //  [SerializeField] private TMP_Text outputField;
 
         //ChatGPt siuncimas tekstas
         private string inputGPT;
@@ -23,46 +24,52 @@ namespace Samples.Whisper
         private readonly int duration = 5;
 
         private AudioClip clip;
-     //   private bool isRecording;     
+         //   private bool isRecording;     
         private OpenAIApi openai = new OpenAIApi();
 
+        private InputAction paspaudimas;
+
+        [SerializeField]
+        private InputActionAsset asset;
        
         private void Start()
         {
-        #if UNITY_WEBGL && !UNITY_EDITOR
-            // Klaidos pranesimas del WebGL
-            outputField.text = "Mikrofonas neplaikomas WebGL";
-        #else
             // Patikrina ar yra naudojamas mikrofonas
             if (Microphone.devices.Length == 0)
-            {
-                
-                outputField.text = "Klaida: Nėra galimų mikrofonų";
+            {               
+               Debug.LogWarning ( "Klaida: Nėra galimų mikrofonų");
             }
-        #endif
+
+
+
+            InputActionMap map = asset.FindActionMap("XRI LeftHand Interaction", false);
+            if (map == null)
+                Debug.Log("Nerado map");
+
+            paspaudimas = map.FindAction("Record");
+            if (paspaudimas == null)
+                Debug.Log("Nera veiksmo");
+
+
+
         }
 
-        private void ChangeMicrophone(int index)
-        {
-            PlayerPrefs.SetInt("user-mic-device-index", index);
-        }
+      //  private void ChangeMicrophone(int index)
+      //  {
+     //       PlayerPrefs.SetInt("user-mic-device-index", index);
+      //  }
 
         private void StartRecording()
         {
                //     isRecording = true;
 
-#if !UNITY_WEBGL
             string defaultMicrophone = Microphone.devices.Length > 0 ? Microphone.devices[0] : null;
             clip = Microphone.Start(defaultMicrophone, false, duration, 44100);
-#endif
         }
 
         private async void EndRecording()
         {
-            message.text = "Transkribuojama...";
-#if !UNITY_WEBGL
-            Microphone.End(null);
-#endif
+        //    message.text = "Transkribuojama...";
 
             byte[] data = SaveWav.Save(fileName, clip);
 
@@ -75,28 +82,19 @@ namespace Samples.Whisper
 
             var res = await openai.CreateAudioTranscription(req);
 
-
             // gaunamas tekstas(from speech)
-            message.text = res.Text; 
+        Debug.Log( res.Text); 
             inputGPT = res.Text;     
             chatGPT.SendReply(inputGPT);    
         }
         
-
         // tikrina ar paspaustas "v" mygtukas ir iraso garsa
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.V))
-            {
-                StartRecording();
-                 message.text = "Klausoma...";
-
-            }
-
-            if (Input.GetKeyUp(KeyCode.V))
-            {
-                EndRecording();
-            }
+            paspaudimas.started+=_=> StartRecording();
+         
+            paspaudimas.canceled +=_=>   EndRecording();
         }
     }
+
 }
