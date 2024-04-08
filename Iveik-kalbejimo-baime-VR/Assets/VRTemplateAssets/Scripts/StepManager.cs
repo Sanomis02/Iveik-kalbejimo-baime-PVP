@@ -35,5 +35,10 @@ namespace Unity.VRTemplate
             m_StepList[m_CurrentStepIndex].stepObject.SetActive(true);
             m_StepButtonTextField.text = m_StepList[m_CurrentStepIndex].buttonText;
         }
+
+        public void UzkrautiPirmaLygi()
+        {
+            LoadScene(2, LoadSceneMode.Single);
+        }
     }
 }
