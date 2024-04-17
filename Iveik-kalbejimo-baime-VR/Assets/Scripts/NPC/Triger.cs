@@ -9,13 +9,19 @@ public class Triger : MonoBehaviour
     [SerializeField] private Canvas titrai;
     [SerializeField] private TMP_Text pranesimas;
     [SerializeField] private float startLaikasPranessimo;
+    [SerializeField] private ChatGPT chatGPT;
+   [SerializeField]private Animator animator;
 
+//private Animator animator;
     private bool rodo = false;
     private float LaikasPranessimo; 
-
+ 
+//private bool isAnimating = false;
         void Start()
     {
+      // bool isAnimating = false;
         LaikasPranessimo = startLaikasPranessimo; // Initialize LaikasPranessimo with starting value
+       // animator = GetComponent<Animator>();
     }
   void Update()
     {
@@ -36,10 +42,13 @@ public class Triger : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
       if (other.CompareTag("Player")) {
+        
         Debug.Log("Enter");
         titrai.gameObject.SetActive(true);
         LaikasPranessimo = startLaikasPranessimo;
-         
+        
+        animator.SetTrigger("Wave");
+        Invoke("Idle", 2.15f);
 
       if (!rodo)
             {
@@ -52,9 +61,19 @@ public class Triger : MonoBehaviour
  
     private void OnTriggerExit(Collider other)
     {
+      
         Debug.Log("EXIT");
         titrai.gameObject.SetActive(false);
+        animator.SetTrigger("Wave");
+        Invoke("Idle", 2.15f);
+        chatGPT.SendReply("Iki greito. Ate."); 
+       // yield return new WaitForSeconds(2.458f);
+
     }
  
+ private void Idle()
+    {
+        animator.SetTrigger("Idle");
+    }
 
 }
