@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 [RequireComponent(typeof(AudioSource))]
 public class AudioPlayer : MonoBehaviour
 {
-     [SerializeField]private Animator animator;
+     //[SerializeField]private Animator animator;
     private AudioSource audioSource;
     private bool deleteCachedFile = true;
      private bool isPlayingAudio = false; // Flag to track if audio is currently playing
@@ -49,12 +49,12 @@ public class AudioPlayer : MonoBehaviour
         if (this.audioSource.isPlaying)
         {
             // Run command when audio finishes playing
-            animator.SetBool("Speak", true);
+            //animator.SetBool("Speak", true);
             isPlayingAudio = false; // Reset the flag
           //  Debug.Log("...");
         }
         else if (!this.audioSource.isPlaying);
-        animator.SetTrigger("Idle");
+        //animator.SetTrigger("Idle");
        // Debug.Log("idle");
     }
 

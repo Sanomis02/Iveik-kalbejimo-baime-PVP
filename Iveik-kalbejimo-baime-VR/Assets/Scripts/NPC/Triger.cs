@@ -11,14 +11,16 @@ public class Triger : MonoBehaviour
     [SerializeField] private float startLaikasPranessimo;
     [SerializeField] private ChatGPT chatGPT;
    [SerializeField]private Animator animator;
+    [SerializeField] private GameObject vaikas;
 
-//private Animator animator;
+    //private Animator animator;
     private bool rodo = false;
     private float LaikasPranessimo; 
  
 //private bool isAnimating = false;
         void Start()
     {
+        animator = vaikas.GetComponent<Animator>();
       // bool isAnimating = false;
         LaikasPranessimo = startLaikasPranessimo; // Initialize LaikasPranessimo with starting value
        // animator = GetComponent<Animator>();
@@ -66,7 +68,11 @@ public class Triger : MonoBehaviour
         titrai.gameObject.SetActive(false);
         animator.SetTrigger("Wave");
         Invoke("Idle", 2.15f);
-        chatGPT.SendReply("Iki greito. Ate."); 
+        if (chatGPT != null)
+        {
+            chatGPT.SendReply("Iki greito. Ate.");
+        }
+        //chatGPT.SendReply("Iki greito. Ate."); 
        // yield return new WaitForSeconds(2.458f);
 
     }
