@@ -3812,6 +3812,7 @@ MonoBehaviour:
   startLaikasPranessimo: 3
   chatGPT: {fileID: 849841370}
   animator: {fileID: 1173034562}
+  vaikas: {fileID: 978263635}
 --- !u!1 &196640900
 GameObject:
   m_ObjectHideFlags: 0
@@ -29504,7 +29505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e942a63a9660cd94fabb740aefe6b692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1173034562}
 --- !u!82 &2113455775
 AudioSource:
   m_ObjectHideFlags: 0
