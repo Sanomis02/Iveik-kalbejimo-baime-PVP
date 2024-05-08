@@ -10,7 +10,7 @@ public class MenuControllerTest : MonoBehaviour
     public InputActionReference openMenuAction;
     public 
 
-    private void Awake()
+     void Awake()
     {
         openMenuAction.action.Enable();
         openMenuAction.action.performed += ToggleMenu;

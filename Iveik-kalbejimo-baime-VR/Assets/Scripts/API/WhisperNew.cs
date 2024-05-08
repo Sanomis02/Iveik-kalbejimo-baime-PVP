@@ -22,6 +22,7 @@ namespace Samples.Whisper
         private string inputGPT;
         private readonly string fileName = "output.wav";
         private readonly int duration = 5;
+        string oculusMicrophone;
 
         private AudioClip clip;
          //   private bool isRecording;     
@@ -40,6 +41,24 @@ namespace Samples.Whisper
                Debug.LogWarning ( "Klaida: Nėra galimų mikrofonų");
             }
 
+            string oculusMicrophone = null;
+            foreach (string device in Microphone.devices)
+            {
+                if (device.ToLower().Contains("oculus virtual"))
+                {
+                    oculusMicrophone = device;
+                    break;
+                }
+            }
+
+            if (oculusMicrophone != null)
+            {
+                clip = Microphone.Start(oculusMicrophone, false, duration, 44100);
+            }
+            else
+            {
+                Debug.LogError("Oculus Virtual Audio Device nerastas");
+            }
 
 
             InputActionMap map = asset.FindActionMap("XRI LeftHand Interaction", false);
@@ -63,8 +82,9 @@ namespace Samples.Whisper
         {
                //     isRecording = true;
 
-            string defaultMicrophone = Microphone.devices.Length > 0 ? Microphone.devices[0] : null;
-            clip = Microphone.Start(defaultMicrophone, false, duration, 44100);
+         //   string defaultMicrophone = Microphone.devices.Length > 0 ? Microphone.devices[0] : null;
+            clip = Microphone.Start(oculusMicrophone, false, duration, 44100);
+            Debug.Log("klausoma");
         }
 
         private async void EndRecording()

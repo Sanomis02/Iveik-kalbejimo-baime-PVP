@@ -5246,6 +5246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e942a63a9660cd94fabb740aefe6b692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!82 &1206792119
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5889,7 +5890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1420332233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5903,6 +5904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vaikas: {fileID: 958013054}
+  player: {fileID: 0}
 --- !u!65 &1420332234
 BoxCollider:
   m_ObjectHideFlags: 0

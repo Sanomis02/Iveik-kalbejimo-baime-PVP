@@ -63,7 +63,7 @@ public class Triger : MonoBehaviour
  
     private void OnTriggerExit(Collider other)
     {
-      
+      if (other.CompareTag("Player")) {
         Debug.Log("EXIT");
         titrai.gameObject.SetActive(false);
         animator.SetTrigger("Wave");
@@ -74,7 +74,7 @@ public class Triger : MonoBehaviour
         }
         //chatGPT.SendReply("Iki greito. Ate."); 
        // yield return new WaitForSeconds(2.458f);
-
+      }
     }
  
  private void Idle()

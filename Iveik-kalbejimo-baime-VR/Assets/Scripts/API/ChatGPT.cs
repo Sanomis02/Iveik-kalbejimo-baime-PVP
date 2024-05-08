@@ -19,7 +19,7 @@ public class ChatGPT : MonoBehaviour
     private List<ChatMessage> messages = new List<ChatMessage>();
 
       //  private string prompt = "Act as a random stranger in a chat room and reply to the questions. Don't break character. Don't ever mention that you are an AI model.";
-    private string prompt = "Act as a child communicating with other child. Do not ever speak any other language than Lithuanian. Do not tell answers that is more than 150 characters. Don't ever mention that you are an AI model.";
+    private string prompt = "Act as a 10 years old child named Jonas communicating with other child. Do not ever speak any other language than Lithuanian. Do not tell answers that is more than 150 characters. Don't ever mention that you are an AI model.";
     
     // irasoma atsakymo zinute
     private void AppendMessage(ChatMessage message)
