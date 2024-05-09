@@ -8,14 +8,16 @@ public class MenuControllerTest : MonoBehaviour
     // Start is called before the first frame update
     public GameObject menu;
     public InputActionReference openMenuAction;
-    public 
-
-     void Awake()
+    public GameObject XRrigPos;
+    const float menuDistance = 0.45f;
+    public void Awake()
     {
         openMenuAction.action.Enable();
         openMenuAction.action.performed += ToggleMenu;
         InputSystem.onDeviceChange += OnDeviceChange;
     }
+
+
 
     private void OnDestroy()
     {
@@ -27,7 +29,10 @@ public class MenuControllerTest : MonoBehaviour
 
     private void ToggleMenu(InputAction.CallbackContext context)
     {
-        Debug.Log("Menu toggled");
+        menu.transform.position = XRrigPos.transform.position;
+        menu.transform.Translate(0, menuDistance, menuDistance, Space.Self);
+
+        menu.SetActive(true);
     }
 
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
