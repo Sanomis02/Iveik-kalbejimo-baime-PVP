@@ -66,7 +66,7 @@ public class Triger : MonoBehaviour
       if (other.CompareTag("Player")) {
         Debug.Log("EXIT");
         titrai.gameObject.SetActive(false);
-        animator.SetTrigger("Wave");
+        animator.SetTrigger("Goodbye");
         Invoke("Idle", 2.15f);
         if (chatGPT != null)
         {
