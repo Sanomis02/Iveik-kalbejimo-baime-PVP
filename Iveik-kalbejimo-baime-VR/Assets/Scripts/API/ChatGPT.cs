@@ -50,7 +50,7 @@ public class ChatGPT : MonoBehaviour
             // Complete the instruction
             var completionResponse = await openai.CreateChatCompletion(new CreateChatCompletionRequest()
             {
-                Model = "gpt-4-0125-preview",
+                Model = "gpt-4-turbo",
                 Messages = messages
             });
 
