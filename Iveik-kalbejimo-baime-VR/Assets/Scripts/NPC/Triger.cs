@@ -6,7 +6,7 @@ using TMPro;
 public class Triger : MonoBehaviour
 {
     // titrai
-    [SerializeField] private Canvas titrai;
+    //[SerializeField] private Canvas titrai;
     [SerializeField] private TMP_Text pranesimas;
     [SerializeField] private float startLaikasPranessimo;
     [SerializeField] private ChatGPT chatGPT;
@@ -46,7 +46,7 @@ public class Triger : MonoBehaviour
       if (other.CompareTag("Player")) {
         
         Debug.Log("Enter");
-        titrai.gameObject.SetActive(true);
+       // titrai.gameObject.SetActive(true);
         LaikasPranessimo = startLaikasPranessimo;
         
         animator.SetTrigger("Wave");
@@ -65,7 +65,7 @@ public class Triger : MonoBehaviour
     {
       if (other.CompareTag("Player")) {
         Debug.Log("EXIT");
-        titrai.gameObject.SetActive(false);
+       // titrai.gameObject.SetActive(false);
         animator.SetTrigger("Goodbye");
         Invoke("Idle", 2.15f);
         if (chatGPT != null)

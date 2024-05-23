@@ -6,7 +6,7 @@ public class SubtitlesMove : MonoBehaviour
 {
     public GameObject sub;
     public Transform head;
-    public float spawnDistance = 2;
+    public float spawnDistance = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class SubtitlesMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sub.transform.position = head.position + new Vector3(head.forward.x, 0, head.forward.z).normalized * spawnDistance;
+        sub.transform.position = head.position + new Vector3(head.forward.x, -1, head.forward.z).normalized * spawnDistance;
         sub.transform.LookAt(head.transform);
         sub.transform.forward *= -1;
     }

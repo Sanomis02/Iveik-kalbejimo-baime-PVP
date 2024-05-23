@@ -28708,7 +28708,7 @@ RectTransform:
   m_GameObject: {fileID: 1801452276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -14.37}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.03, y: 0.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 712708920}
@@ -28829,7 +28829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sub: {fileID: 1801452276}
   head: {fileID: 445078179}
-  spawnDistance: 2
+  spawnDistance: 1
 --- !u!1001 &1804870963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31924,7 +31924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e10417424ce43a4d972945b578dd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titrai: {fileID: 1801452281}
   pranesimas: {fileID: 1633389470}
   startLaikasPranessimo: 3
   chatGPT: {fileID: 1658258280}
