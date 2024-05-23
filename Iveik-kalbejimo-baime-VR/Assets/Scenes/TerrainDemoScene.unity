@@ -6662,9 +6662,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pranesimas: {fileID: 171043732}
   startLaikasPranessimo: 3
-  chatGPT: {fileID: 0}
-  animator: {fileID: 0}
-  vaikas: {fileID: 0}
+  chatGPT: {fileID: 1974898731}
+  animator: {fileID: 2140455841}
+  vaikas: {fileID: 1784405955}
 --- !u!54 &1318597575
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9397,6 +9397,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8444205012232006738, guid: bbdac3f1c1cbe8c42a6770126147d794, type: 3}
   m_PrefabInstance: {fileID: 8444205012910624044}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1784405955 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 048a3e177fc83034ab3797f400f0dbb2, type: 3}
+  m_PrefabInstance: {fileID: 951779513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1784718779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9750,7 +9755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2560c480c4aff64a8deb436458ba287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioPlayer: {fileID: 1206792118}
+  audioPlayer: {fileID: 1904442487}
 --- !u!4 &1866561810
 Transform:
   m_ObjectHideFlags: 0
@@ -11173,7 +11178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openAIWrapper: {fileID: 1866561809}
-  outputField: {fileID: 0}
+  outputField: {fileID: 1503899047}
 --- !u!4 &1974898732
 Transform:
   m_ObjectHideFlags: 0
