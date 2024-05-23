@@ -12,7 +12,7 @@ public class AudioPlayer : MonoBehaviour
     private bool deleteCachedFile = true;
      private bool isPlayingAudio = false; // Flag to track if audio is currently playing
     
-    private void OnEnable()
+    private void Start()
     {
         this.audioSource = GetComponent<AudioSource>();
     }
