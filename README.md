@@ -51,10 +51,12 @@ https://drive.google.com/file/d/13ZM8B4ccFkUUncGILA11ZU98gepnSqB-/view?usp=shari
 ```
 Kad veiktų ChatGPT API, sukurkite katalogą pavadinimu .openai home direktorijoje (e.g. C:User\UserName\ Windows'ams, ~\ linux'ams).
 Viduoje .openai katalogo įdėkite auth.json failą, jame įdėkite API raktą, pavyzdys kuriame yra organizacijos bei asmeninis API surašymas:
-{
+
+{ 
     "api_key": "sk-...W6yi",
     "organization": "org-...L7W"
 }
+
 Išsaugokite failą.
 
 
