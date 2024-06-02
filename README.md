@@ -44,7 +44,8 @@ Tai VR-3D projektas, kuriame siekiama skatinti jauno amžiaus individus šnekėt
 git clone https://github.com/Sanomis02/Iveik-kalbejimo-baime-PVP
 ```
 
-Naudojami resursai aplinkos pavyzdžiui:
+Naudojamas turinys užkrauti miško sceną:
+Įkelti išarchyvuotą katalogą į projekto root katalogą arba assets.
 
 ```shell
 https://drive.google.com/file/d/13ZM8B4ccFkUUncGILA11ZU98gepnSqB-/view?usp=sharing
