@@ -43,13 +43,20 @@ Tai VR-3D projektas, kuriame siekiama skatinti jauno amžiaus individus šnekėt
 ```shell
 git clone https://github.com/Sanomis02/Iveik-kalbejimo-baime-PVP
 ```
-
 Naudojamas turinys užkrauti miško sceną:
 Įkelti išarchyvuotą katalogą į projekto root katalogą arba assets.
 
 ```shell
 https://drive.google.com/file/d/13ZM8B4ccFkUUncGILA11ZU98gepnSqB-/view?usp=sharing
 ```
+Kad veiktų ChatGPT API, sukurkite katalogą pavadinimu .openai home direktorijoje (e.g. C:User\UserName\ Windows'ams, ~\ linux'ams).
+Viduoje .openai katalogo įdėkite auth.json failą, jame įdėkite API raktą, pavyzdys kuriame yra organizacijos bei asmeninis API surašymas:
+{
+    "api_key": "sk-...W6yi",
+    "organization": "org-...L7W"
+}
+Išsaugokite failą.
+
 
 ## Projekto katalogo struktūra
 ```bash
